@@ -1,0 +1,61 @@
+---
+import "aos/dist/aos.css";
+
+const portfolios = [
+  {
+    title: "Portfolio 1",
+    description: "Carolina tiene una tienda de ropa vintage. Ella necesitaba una website que le permitiera mostrar sus productos y un CMS que le permitiera cargar, borrar y editar productos.",
+    imageUrl: "public/portfolio1.png", // reemplazá con la ruta real de tu imagen
+    link: "https://trendmdq.vercel.app/"
+  },
+  {
+    title: "Portfolio 2",
+    description: "Carolina tiene una tienda de ropa vintage. Ella necesitaba una website que le permitiera mostrar sus productos y un CMS que le permitiera cargar, borrar y editar productos.",
+    imageUrl: "public/portfolio2.png",
+    link: "https://trendmdq.vercel.app/"
+  },
+  {
+    title: "Portfolio 3",
+    description: "Carolina tiene una tienda de ropa vintage. Ella necesitaba una website que le permitiera mostrar sus productos y un CMS que le permitiera cargar, borrar y editar productos.",
+    imageUrl: "public/portfolio3.png",
+    link: "https://trendmdq.vercel.app/"
+  }
+];
+
+---
+
+<section id="portfolio" class="bg-[#E6E0D9] py-16 px-8 max-auto mx-auto">
+  <h2 data-aos="fade-up" class="text-3xl font-semibold text-[#174871] mb-12 text-center">Portfolios</h2>
+
+  <div class="grid grid-cols-1 gap-12 max-w-6xl mx-auto">
+
+    {/* Item 1 */}
+    <div data-aos="fade-up" class="flex flex-col md:flex-row items-center gap-6">
+      <a href={portfolios[0].link} target="_blank" rel="noopener noreferrer" 
+         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
+        <img src={portfolios[0].imageUrl} alt={portfolios[0].title} class="object-cover w-full h-full" />
+      </a>
+      <p class="text-[#000] max-w-xl text-lg">{portfolios[0].description}</p>
+    </div>
+
+    {/* Item 2 */}
+    <div data-aos="fade-up" class="flex flex-col md:flex-row-reverse items-center gap-6">
+      <a href={portfolios[1].link} target="_blank" rel="noopener noreferrer" 
+         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
+        <img src={portfolios[1].imageUrl} alt={portfolios[1].title} class="object-cover w-full h-full" />
+      </a>
+      <p class="text-[#000] max-w-xl text-lg">{portfolios[1].description}</p>
+    </div>
+
+    {/* Item 3 */}
+    <div data-aos="fade-up" class="flex flex-col md:flex-row items-center gap-6">
+      <a href={portfolios[2].link} target="_blank" rel="noopener noreferrer" 
+         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
+        <img src={portfolios[2].imageUrl} alt={portfolios[2].title} class="object-cover w-full h-full" />
+      </a>
+      <p class="text-[#000] max-w-xl text-lg">{portfolios[2].description}</p>
+    </div>
+
+  </div>
+</section>
+

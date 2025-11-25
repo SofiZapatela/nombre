@@ -1,22 +1,40 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Nosotros from "../components/Nosotros.astro";
+import Servicios from "../components/Servicios.astro";
+import Navbar from "../components/Navbar.astro";
+import Portfolio from "../components/Portfolio.astro";
+import Proceso from "../components/Proceso.astro";
+import FAQ from "../components/FAQ.astro";
+import Footer from "../components/Footer.astro";
+import AOSInit from "../components/AOSInit.astro";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mi sitio</title>
+  </head>
+  <body>
+
+    <AOSInit client:load />
+	<div class="sticky top-0 z-50 bg-[#0F2D4D]">
+      <Navbar />
+    </div>
+    <Header />
+	<Nosotros />
+	<Servicios />
+	<Portfolio />
+	<Proceso />
+	<FAQ />
+	<Footer />
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
