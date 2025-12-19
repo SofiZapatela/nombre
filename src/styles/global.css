@@ -3,3 +3,80 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background:
+  /* capas profundas (nubes oscuras) */
+  radial-gradient(circle at 15% 20%, #052f56 0%, transparent 50%),
+  radial-gradient(circle at 85% 25%, #052e4f 0%, transparent 60%),
+  radial-gradient(circle at 35% 55%, #03172c 0%, transparent 65%),
+  radial-gradient(circle at 70% 70%, #0b4f8a 0%, transparent 70%),
+  radial-gradient(circle at 50% 40%, #03172c 0%, transparent 60%),
+
+  /* capas intermedias */
+  radial-gradient(circle at 25% 75%, #020617 0%, transparent 68%),
+  radial-gradient(circle at 75% 50%, #042845 0%, transparent 65%),
+
+  /* base ultra oscura */
+  linear-gradient(
+    180deg,
+    #00030a 0%,
+    #010617 40%,
+    #020617 70%,
+    #00010a 100%
+  );
+
+
+
+
+
+  background-blend-mode: screen;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  body {
+    background:
+      radial-gradient(
+        ellipse 140% 90% at 10% 20%,
+        #03182c 0%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse 130% 85% at 90% 25%,
+        #03213a 0%,
+        transparent 85%
+      ),
+      radial-gradient(
+        ellipse 160% 100% at 30% 60%,
+        #308bc4 0%,
+        transparent 88%
+      ),
+      radial-gradient(
+        ellipse 150% 110% at 70% 75%,
+        #052846 0%,
+        transparent 90%
+      ),
+      radial-gradient(
+        ellipse 180% 120% at 50% 45%,
+        #03172c 0%,
+        transparent 85%
+      ),
+
+      linear-gradient(
+        180deg,
+        #00030a 0%,
+        #010617 45%,
+        #020617 75%,
+        #00010a 100%
+      );
+  }
+}
+
+
