@@ -44,39 +44,44 @@ body {
   body {
     background:
       radial-gradient(
-        ellipse 140% 90% at 10% 20%,
-        #03182c 0%,
-        transparent 80%
+        ellipse 120% 80% at 10% 15%,
+        #042a52 0%,
+        rgba(4, 42, 82, 0.8) 25%,
+        transparent 60%
       ),
       radial-gradient(
-        ellipse 130% 85% at 90% 25%,
-        #03213a 0%,
-        transparent 85%
+        ellipse 110% 75% at 90% 20%,
+        #053b6a 0%,
+        rgba(5, 59, 106, 0.75) 30%,
+        transparent 65%
       ),
       radial-gradient(
-        ellipse 160% 100% at 30% 60%,
-        #308bc4 0%,
-        transparent 88%
+        ellipse 130% 90% at 30% 55%,
+        #3aa0e0 0%,
+        rgba(58, 160, 224, 0.7) 28%,
+        transparent 62%
       ),
       radial-gradient(
-        ellipse 150% 110% at 70% 75%,
-        #052846 0%,
-        transparent 90%
+        ellipse 140% 95% at 70% 70%,
+        #06406f 0%,
+        rgba(6, 64, 111, 0.75) 32%,
+        transparent 68%
       ),
       radial-gradient(
-        ellipse 180% 120% at 50% 45%,
-        #03172c 0%,
-        transparent 85%
+        ellipse 150% 100% at 50% 45%,
+        #031c3f 0%,
+        rgba(3, 28, 63, 0.85) 35%,
+        transparent 70%
       ),
-
       linear-gradient(
         180deg,
         #00030a 0%,
-        #010617 45%,
-        #020617 75%,
+        #020c2b 40%,
+        #02133a 70%,
         #00010a 100%
       );
   }
 }
+
 
 
