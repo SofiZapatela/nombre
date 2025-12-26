@@ -2,86 +2,109 @@
 
 body {
   font-family: 'Inter', sans-serif;
-}
-
-body {
   min-height: 100vh;
   margin: 0;
+  color: white;
+  background: #000;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =========================
+   FONDO AURORA + GLASS REAL
+   ========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -1;
+  pointer-events: none;
 
   background:
-  /* capas profundas (nubes oscuras) */
-  radial-gradient(circle at 15% 20%, #052f56 0%, transparent 50%),
-  radial-gradient(circle at 85% 25%, #052e4f 0%, transparent 60%),
-  radial-gradient(circle at 35% 55%, #03172c 0%, transparent 65%),
-  radial-gradient(circle at 70% 70%, #0b4f8a 0%, transparent 70%),
-  radial-gradient(circle at 50% 40%, #03172c 0%, transparent 60%),
+    /* AURORA INTENSA */
+    radial-gradient(
+      1100px 700px at 15% 10%,
+      rgba(120, 200, 255, 0.65) 0%,
+      rgba(60, 140, 255, 0.45) 30%,
+      rgba(20, 60, 120, 0.30) 50%,
+      transparent 70%
+    ),
 
-  /* capas intermedias */
-  radial-gradient(circle at 25% 75%, #020617 0%, transparent 68%),
-  radial-gradient(circle at 75% 50%, #042845 0%, transparent 65%),
+    radial-gradient(
+      900px 650px at 85% 20%,
+      rgba(180, 120, 255, 0.55) 0%,
+      rgba(110, 60, 220, 0.40) 35%,
+      rgba(40, 20, 100, 0.30) 55%,
+      transparent 75%
+    ),
 
-  /* base ultra oscura */
-  linear-gradient(
-    180deg,
-    #00030a 0%,
-    #010617 40%,
-    #020617 70%,
-    #00010a 100%
-  );
+    radial-gradient(
+      1000px 800px at 30% 70%,
+      rgba(80, 255, 220, 0.45) 0%,
+      rgba(40, 180, 160, 0.32) 40%,
+      rgba(10, 80, 70, 0.25) 60%,
+      transparent 80%
+    ),
 
+    radial-gradient(
+      900px 700px at 75% 80%,
+      rgba(60, 140, 255, 0.50) 0%,
+      rgba(30, 70, 180, 0.38) 35%,
+      rgba(10, 30, 90, 0.30) 60%,
+      transparent 80%
+    ),
 
-
-
-
-  background-blend-mode: screen;
+    /* BASE NEGRA REAL */
+    linear-gradient(
+      180deg,
+      #000000 0%,
+      #01010a 35%,
+      #000000 70%,
+      #000000 100%
+    );
 
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
+  background-blend-mode: screen;
+
+  /* GLASS CORRECTO */
+  filter: blur(36px) saturate(120%);
+  transform: scale(1.1);
 }
 
-@media (max-width: 640px) {
-  body {
+/* =========================
+   MOBILE — CONTRASTE FUERTE
+   ========================= */
+@media (max-width: 768px) {
+  body::before {
+    inset: -35%;
+
     background:
       radial-gradient(
-        ellipse 120% 80% at 10% 15%,
-        #042a52 0%,
-        rgba(4, 42, 82, 0.8) 25%,
-        transparent 60%
+        450px 450px at 15% 12%,
+        rgba(120, 220, 255, 0.85) 0%,
+        rgba(40, 120, 255, 0.55) 35%,
+        rgba(10, 30, 90, 0.40) 55%,
+        transparent 75%
       ),
+
       radial-gradient(
-        ellipse 110% 75% at 90% 20%,
-        #053b6a 0%,
-        rgba(5, 59, 106, 0.75) 30%,
-        transparent 65%
+        420px 420px at 85% 25%,
+        rgba(180, 120, 255, 0.75) 0%,
+        rgba(90, 50, 220, 0.55) 40%,
+        rgba(30, 10, 90, 0.40) 60%,
+        transparent 80%
       ),
+
       radial-gradient(
-        ellipse 130% 90% at 30% 55%,
-        #3aa0e0 0%,
-        rgba(58, 160, 224, 0.7) 28%,
-        transparent 62%
+        500px 500px at 50% 75%,
+        rgba(80, 255, 210, 0.60) 0%,
+        rgba(40, 160, 150, 0.42) 45%,
+        rgba(10, 60, 55, 0.35) 65%,
+        transparent 85%
       ),
-      radial-gradient(
-        ellipse 140% 95% at 70% 70%,
-        #06406f 0%,
-        rgba(6, 64, 111, 0.75) 32%,
-        transparent 68%
-      ),
-      radial-gradient(
-        ellipse 150% 100% at 50% 45%,
-        #031c3f 0%,
-        rgba(3, 28, 63, 0.85) 35%,
-        transparent 70%
-      ),
-      linear-gradient(
-        180deg,
-        #00030a 0%,
-        #020c2b 40%,
-        #02133a 70%,
-        #00010a 100%
-      );
+
+      linear-gradient(#000, #000);
+
+    filter: blur(22px) saturate(115%);
   }
 }
-
-
-
