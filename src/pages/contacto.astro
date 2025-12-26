@@ -3,151 +3,233 @@ import "aos/dist/aos.css";
 import "../styles/global.css";
 ---
 
-
-<html lang="es" >
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Mi Sitio</title>
 </head>
-<body class="bg-[#f9fafb] text-gray-800 min-h-screen flex flex-col">
 
+<body class="bg-white/5 backdrop-blur-xl text-white min-h-screen flex flex-col">
+
+  <!-- HEADER -->
   <header class="py-6 px-6 max-w-7xl mx-auto w-full flex justify-between items-center">
     <h1 class="text-3xl font-bold">Mi Sitio</h1>
     <nav>
-      <a href="/" class="hover:text-[#162E4C] text-bold transition">Inicio</a>
+      <a href="/" class="hover:text-[#162E4C] font-bold transition">Inicio</a>
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main class="flex-grow flex justify-center items-center px-6 py-16">
 
     <form
       action="https://formspree.io/f/xyzalgqe"
       method="POST"
-      class="bg-white rounded-lg shadow-md max-w-3xl w-full p-10 space-y-6"
+      class="bg-white/10 backdrop-blur-xl rounded-2xl shadow-md max-w-3xl w-full p-10 space-y-6 border border-white/20"
     >
-      <h2 class="text-3xl font-semibold mb-4 text-gray-900">Queremos conocerte mejor</h2>
-      <p class="text-gray-600 mb-8">
+
+      <h2 class="text-3xl font-semibold mb-2 text-white">
+        Queremos conocerte mejor
+      </h2>
+
+      <p class="text-white/80 mb-8">
         Contanos un poco sobre tu proyecto para que podamos asesorarte mejor.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+        <!-- NOMBRE -->
         <div>
-          <label for="nombre" class="block mb-2 font-medium text-gray-700">Nombre completo</label>
+          <label for="nombre" class="block mb-2 font-medium text-white">
+            Nombre completo
+          </label>
           <input
             type="text"
             id="nombre"
             name="nombre"
             placeholder="Tu nombre"
             required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400"
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
         </div>
 
+        <!-- EMAIL -->
         <div>
-          <label for="email" class="block mb-2 font-medium text-gray-700">Email</label>
+          <label for="email" class="block mb-2 font-medium text-white">
+            Email
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="tu@email.com"
             required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400"
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
         </div>
 
+        <!-- TEL -->
         <div>
-          <label for="telefono" class="block mb-2 font-medium text-gray-700">Teléfono (opcional)</label>
+          <label for="telefono" class="block mb-2 font-medium text-white">
+            Teléfono (opcional)
+          </label>
           <input
             type="tel"
             id="telefono"
             name="telefono"
             placeholder="+54 9 11 1234 5678"
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400"
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
         </div>
 
+        <!-- SELECT TIPO PAGINA -->
         <div>
-          <label for="tipo-pagina" class="block mb-2 font-medium text-gray-700">Tipo de página</label>
-          <select
-            id="tipo-pagina"
-            name="tipo-pagina"
-            required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          >
-            <option value="" disabled selected>Seleccioná una opción</option>
-            <option value="landing">Landing page</option>
-            <option value="web-institucional">Web institucional</option>
-            <option value="tienda">Tienda</option>
-            <option value="blog">Blog</option>
-            <option value="otro">Otro</option>
-          </select>
+          <label for="tipo-pagina" class="block mb-2 font-medium text-white">
+            Tipo de página
+          </label>
+
+          <div class="relative">
+            <select
+              id="tipo-pagina"
+              name="tipo-pagina"
+              required
+              class="w-full px-4 py-3 pr-12 rounded-md
+                     bg-white/10 backdrop-blur-md
+                     border border-white/30
+                     text-white
+                     focus:outline-none focus:ring-2 focus:ring-cyan-400
+                     appearance-none"
+            >
+              <option value="" disabled selected class="text-gray-900">
+                Seleccioná una opción
+              </option>
+              <option value="landing" class="text-gray-900">Landing page</option>
+              <option value="web-institucional" class="text-gray-900">Web institucional</option>
+              <option value="tienda" class="text-gray-900">Tienda</option>
+              <option value="blog" class="text-gray-900">Blog</option>
+              <option value="otro" class="text-gray-900">Otro</option>
+            </select>
+
+            <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/70">
+              ⌄
+            </span>
+          </div>
         </div>
 
+        <!-- SELECT DOMINIO -->
         <div>
-          <label for="dominio-hosting" class="block mb-2 font-medium text-gray-700">¿Tenés dominio o hosting?</label>
-          <select
-            id="dominio-hosting"
-            name="dominio-hosting"
-            required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          >
-            <option value="" disabled selected>Seleccioná una opción</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
+          <label for="dominio-hosting" class="block mb-2 font-medium text-white">
+            ¿Tenés dominio o hosting?
+          </label>
+
+          <div class="relative">
+            <select
+              id="dominio-hosting"
+              name="dominio-hosting"
+              required
+              class="w-full px-4 py-3 pr-12 rounded-md
+                     bg-white/10 backdrop-blur-md
+                     border border-white/30
+                     text-white
+                     focus:outline-none focus:ring-2 focus:ring-cyan-400
+                     appearance-none"
+            >
+              <option value="" disabled selected class="text-gray-900">
+                Seleccioná una opción
+              </option>
+              <option value="si" class="text-gray-900">Sí</option>
+              <option value="no" class="text-gray-900">No</option>
+            </select>
+
+            <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/70">
+              ⌄
+            </span>
+          </div>
         </div>
 
+        <!-- TEXTAREAS -->
         <div class="md:col-span-2">
-          <label for="objetivo" class="block mb-2 font-medium text-gray-700">Objetivo principal de la página</label>
+          <label for="objetivo" class="block mb-2 font-medium text-white">
+            Objetivo principal de la página
+          </label>
           <textarea
             id="objetivo"
             name="objetivo"
             rows="3"
-            placeholder="Contanos brevemente qué querés lograr con la web"
             required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400 resize-none"
+            placeholder="Contanos brevemente qué querés lograr con la web"
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
           ></textarea>
         </div>
 
         <div class="md:col-span-2">
-          <label for="funcionalidades" class="block mb-2 font-medium text-gray-700">Funciones o secciones que necesitás</label>
+          <label for="funcionalidades" class="block mb-2 font-medium text-white">
+            Funciones o secciones que necesitás
+          </label>
           <textarea
             id="funcionalidades"
             name="funcionalidades"
             rows="3"
-            placeholder="Ej: formulario de contacto, catálogo, blog, etc."
             required
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400 resize-none"
+            placeholder="Ej: formulario de contacto, catálogo, blog, etc."
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
           ></textarea>
         </div>
 
-
         <div class="md:col-span-2">
-          <label for="mensaje" class="block mb-2 font-medium text-gray-700">Mensaje adicional</label>
+          <label for="mensaje" class="block mb-2 font-medium text-white">
+            Mensaje adicional
+          </label>
           <textarea
             id="mensaje"
             name="mensaje"
             rows="4"
             placeholder="Si querés agregar algo más, escribilo acá"
-            class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-400 resize-none"
+            class="w-full px-4 py-3 rounded-md
+                   bg-white/10 backdrop-blur-md
+                   border border-white/30
+                   text-white placeholder-white/50
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
           ></textarea>
         </div>
 
       </div>
 
+      <!-- BOTON -->
       <button
         type="submit"
-        class="mt-6 w-full bg-[#162E4C] text-white font-semibold py-3 rounded-md hover:bg-cyan-600 transition-colors duration-300 shadow-md"
+        class="mt-6 w-full bg-[#162E4C] text-white font-semibold py-3 rounded-md
+               hover:bg-cyan-600 transition-colors duration-300 shadow-md"
       >
         Enviar consulta
       </button>
-    </form>
 
+    </form>
   </main>
 
-  <footer class="bg-[#162E4C] text-neutral-400 py-6 text-center">
+  <!-- FOOTER -->
+  <footer class="text-neutral-400 py-6 text-center">
     © 2025 Mi Sitio - Todos los derechos reservados
   </footer>
 
