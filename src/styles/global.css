@@ -39,11 +39,11 @@ body::before {
     ),
 
     radial-gradient(
-      1000px 800px at 30% 70%,
+      700px 800px at 30% 70%,
       rgba(80, 255, 220, 0.45) 0%,
       rgba(40, 180, 160, 0.32) 40%,
       rgba(10, 80, 70, 0.25) 60%,
-      transparent 80%
+      transparent 70%
     ),
 
     radial-gradient(
@@ -51,7 +51,7 @@ body::before {
       rgba(60, 140, 255, 0.50) 0%,
       rgba(30, 70, 180, 0.38) 35%,
       rgba(10, 30, 90, 0.30) 60%,
-      transparent 80%
+      transparent 70%
     ),
 
     /* BASE NEGRA REAL */
