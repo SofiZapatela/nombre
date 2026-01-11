@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
 /* =========================
    FONDO AURORA + GLASS REAL
    ========================= */
@@ -40,7 +44,7 @@ body::before {
 
     radial-gradient(
       700px 800px at 30% 70%,
-      rgba(80, 255, 220, 0.45) 0%,
+      oklch(90.328% 0.1491 176.402 / 0.45) 0%,
       rgba(40, 180, 160, 0.32) 40%,
       rgba(10, 80, 70, 0.25) 60%,
       transparent 70%
@@ -107,4 +111,12 @@ body::before {
 
     filter: blur(22px) saturate(115%);
   }
+}
+
+
+.glow-text {
+  text-shadow:
+    0 0 6px rgba(97,205,183,0.4),
+    0 0 12px rgba(97,205,183,0.25),
+    0 0 20px rgba(97,205,183,0.15);
 }
