@@ -7,14 +7,14 @@ import "../styles/global.css";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Mi Sitio</title>
+  <title>Contacto - LUMEN</title>
 </head>
 
 <body class="bg-white/5 backdrop-blur-xl text-white min-h-screen flex flex-col">
 
   <!-- HEADER -->
   <header class="py-6 px-6 max-w-7xl mx-auto w-full flex justify-between items-center">
-    <h1 class="text-3xl font-bold">Mi Sitio</h1>
+    <h1 class="text-3xl font-playfair font-medium text-[#61cdb7a5]">LUMEN</h1>
     <nav>
       <a href="/" class="hover:text-[#162E4C] font-bold transition">Inicio</a>
     </nav>
@@ -24,6 +24,8 @@ import "../styles/global.css";
   <main class="flex-grow flex justify-center items-center px-6 py-16">
 
     <form
+       id="contact-form"
+      onsubmit="return false;"
       action="https://formspree.io/f/xyzalgqe"
       method="POST"
       class="bg-white/10 backdrop-blur-xl rounded-2xl shadow-md max-w-3xl w-full p-10 space-y-6 border border-white/20"
@@ -118,7 +120,6 @@ import "../styles/global.css";
               </option>
               <option value="landing" class="text-gray-900">Landing page</option>
               <option value="web-institucional" class="text-gray-900">Web institucional</option>
-              <option value="tienda" class="text-gray-900">Tienda</option>
               <option value="blog" class="text-gray-900">Blog</option>
               <option value="otro" class="text-gray-900">Otro</option>
             </select>
@@ -230,8 +231,30 @@ import "../styles/global.css";
 
   <!-- FOOTER -->
   <footer class="text-neutral-400 py-6 text-center">
-    © 2025 Mi Sitio - Todos los derechos reservados
+    © 2026 LUMEN - Todos los derechos reservados
   </footer>
+
+  <script is:inline>
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", async () => {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      window.location.href = "/gracias";
+    } else {
+      alert("Error al enviar");
+    }
+  });
+</script>
+
+
+
+
 
 </body>
 </html>
