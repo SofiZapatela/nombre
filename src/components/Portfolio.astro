@@ -4,71 +4,66 @@ import "aos/dist/aos.css";
 const portfolios = [
   {
     title: "Portfolio 1",
-    description: "Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
-    imageUrl: "/portfolio1.png", // reemplazá con la ruta real de tu imagen
-    link: "https://trendmdq.vercel.app/"
+    description:
+      "Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
+    imageUrl: "/portfolio1.png",
+    link: "https://trendmdq.vercel.app/",
   },
   {
     title: "Portfolio 2",
-    description: "Diseñamos y desarrollamos una web responsiva para Bar Coral que presenta el menú de comidas y bebidas de forma clara y accesible, facilita la reserva por WhatsApp y guía al usuario a secciones clave como menú, contacto y ubicación. La solución resuelve problemas reales de negocios gastronómicos: muestra la oferta de productos en un formato visual moderno, mejora la accesibilidad en móviles y reduce fricción en la conversión de visitantes a clientes, logrando que la experiencia del usuario sea fluida y efectiva desde cualquier dispositivo.",
+    description:
+      "Diseñamos y desarrollamos una web responsiva para un bar ficticio que presenta el menú de comidas y bebidas de forma clara y accesible, facilita la reserva por WhatsApp y guía al usuario a secciones clave como menú, contacto y ubicación. La solución resuelve problemas reales de negocios gastronómicos: muestra la oferta de productos en un formato visual moderno, mejora la accesibilidad en móviles y reduce fricción en la conversión de visitantes a clientes, logrando que la experiencia del usuario sea fluida y efectiva desde cualquier dispositivo.",
     imageUrl: "/bar-coral.png",
-    link: "https://bar-coral.vercel.app/"
+    link: "https://bar-coral.vercel.app/",
   },
   {
     title: "Portfolio 3",
-    description: "Diseñamos y desarrollamos una web responsiva para Hotel Loma Verde que presenta el hotel, sus habitaciones y servicios de forma clara y atractiva, e integra un sistema de reservas online con consulta de disponibilidad. El proyecto incluye conexión a base de datos y un dashboard privado para gestionar reservas, fechas y habitaciones, resolviendo una necesidad real del negocio al centralizar la gestión y mejorar la experiencia del usuario tanto para huéspedes como para el equipo del hotel desde cualquier dispositivo.",
+    description:
+      "Diseñamos y desarrollamos una web responsiva para un hotel ficticio que presenta el hotel, sus habitaciones y servicios de forma clara y atractiva, e integra un sistema de reservas online con consulta de disponibilidad. El proyecto incluye conexión a base de datos y un dashboard privado para gestionar reservas, fechas y habitaciones, resolviendo una necesidad real del negocio al centralizar la gestión y mejorar la experiencia del usuario tanto para huéspedes como para el equipo del hotel desde cualquier dispositivo.",
     imageUrl: "/hotel.png",
-    link: "https://hotel-loma-verde.vercel.app/"
-  }
+    link: "https://hotel-loma-verde.vercel.app/",
+  },
 ];
-
 ---
 
-<section id="portfolio" class=" py-16 px-8">
-  <h2 data-aos="fade-up" class="text-3xl font-semibold text-white mb-12 text-center">
+<section id="portfolio" class="py-16 px-8">
+  <h2
+    data-aos="fade-up"
+    class="text-3xl font-semibold text-white mb-12 text-center"
+  >
     Portfolios
   </h2>
 
   <div class="grid grid-cols-1 gap-12 max-w-5xl mx-auto">
+    {portfolios.map((item, index) => (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-aos="fade-up"
+        class={`group bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-xl
+                hover:bg-white/15 transition
+                flex flex-col items-center gap-6 cursor-pointer
+                ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
+      >
+        <div class="relative rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871]">
+          <img
+            src={item.imageUrl}
+            alt={item.title}
+            class="object-cover w-full h-full group-hover:scale-105 transition"
+          />
 
-    {/* Item 1 */}
-    <div 
-      data-aos="fade-up"
-      class="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-xl  hover:bg-white/15 transition
-             flex flex-col md:flex-row items-center gap-6"
-    >
-      <a href={portfolios[0].link} target="_blank" rel="noopener noreferrer" 
-         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
-        <img src={portfolios[0].imageUrl} alt={portfolios[0].title} class="object-cover w-full h-full" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <span class="text-white text-sm tracking-wide uppercase">
+              Click para ir a la website
+            </span>
+          </div>
+        </div>
+
+        <p class="text-white max-w-xl text-lg leading-relaxed">
+          {item.description}
+        </p>
       </a>
-      <p class="text-white max-w-xl text-lg leading-relaxed">{portfolios[0].description}</p>
-    </div>
-
-    {/* Item 2 */}
-    <div 
-      data-aos="fade-up"
-      class="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-xl  hover:bg-white/15 transition
-             flex flex-col md:flex-row-reverse items-center gap-6"
-    >
-      <a href={portfolios[1].link} target="_blank" rel="noopener noreferrer" 
-         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
-        <img src={portfolios[1].imageUrl} alt={portfolios[1].title} class="object-cover w-full h-full" />
-      </a>
-      <p class="text-white max-w-xl text-lg leading-relaxed">{portfolios[1].description}</p>
-    </div>
-
-    {/* Item 3 */}
-    <div 
-      data-aos="fade-up"
-      class="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-xl  hover:bg-white/15 transition
-             flex flex-col md:flex-row items-center gap-6"
-    >
-      <a href={portfolios[2].link} target="_blank" rel="noopener noreferrer" 
-         class="block rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871] hover:opacity-90 transition">
-        <img src={portfolios[2].imageUrl} alt={portfolios[2].title} class="object-cover w-full h-full" />
-      </a>
-      <p class="text-white max-w-xl text-lg leading-relaxed">{portfolios[2].description}</p>
-    </div>
-
+    ))}
   </div>
 </section>
