@@ -1,69 +1,174 @@
 ---
 import "aos/dist/aos.css";
 
-const portfolios = [
+const proyectos = [
   {
-    title: "Portfolio 1",
-    description:
-      "Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
-    imageUrl: "/portfolio1.png",
-    link: "https://trendmdq.vercel.app/",
-  },
-  {
-    title: "Portfolio 2",
-    description:
+    nombre: "Bar Coral",
+    url: "https://bar-coral.vercel.app/",
+    descripcion:
       "Diseñamos y desarrollamos una web responsive para un bar ficticio que presenta el menú de comidas y bebidas de forma clara y accesible, facilita la reserva por WhatsApp y guía al usuario a secciones clave como menú, contacto y ubicación. La solución resuelve problemas reales de negocios gastronómicos: muestra la oferta de productos en un formato visual moderno, mejora la accesibilidad en móviles y reduce fricción en la conversión de visitantes a clientes, logrando que la experiencia del usuario sea fluida y efectiva desde cualquier dispositivo.",
-    imageUrl: "/bar-coral.png",
-    link: "https://bar-coral.vercel.app/",
+    imagen: "/bar-coral.png",
   },
   {
-    title: "Portfolio 3",
-    description:
+    nombre: "Hotel Loma Verde",
+    url: "https://hotel-loma-verde.vercel.app/",
+    descripcion:
       "Diseñamos y desarrollamos una web responsive para un hotel ficticio que presenta el hotel, sus habitaciones y servicios de forma clara y atractiva, e integra un sistema de reservas online con consulta de disponibilidad. El proyecto incluye conexión a base de datos y un dashboard privado para gestionar reservas, fechas y habitaciones, resolviendo una necesidad real del negocio al centralizar la gestión y mejorar la experiencia del usuario tanto para huéspedes como para el equipo del hotel desde cualquier dispositivo.",
-    imageUrl: "/hotel.png",
-    link: "https://hotel-loma-verde.vercel.app/",
+    imagen: "hotel.png",
+  },
+  {
+    nombre: "Trend MDQ",
+    url: "https://trend-mdq.vercel.app/",
+    descripcion:
+      "Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
+    imagen: "portfolio1.png",
+  },
+  {
+    nombre: "Invitación de boda",
+    url: "https://wedding-invite-six-delta.vercel.app/",
+    descripcion:
+      "Diseñamos y desarrollamos una invitación digital para casamiento, enfocada en una experiencia elegante, clara y emocional. La web incluye cuenta regresiva al evento, sección narrativa con la historia de la pareja, información del día (fecha, horario y ubicación), formulario de confirmación de asistencia (RSVP) y una integración hacia una playlist colaborativa. El diseño prioriza la legibilidad, la estética romántica y la navegación simple, optimizada para que los invitados encuentren toda la información del evento en un solo lugar y puedan confirmar su asistencia fácilmente.",
+    imagen: "wedding-invite.png",
   },
 ];
 ---
 
-<section id="portfolio" class="py-16 px-8">
-  <h2
-    data-aos="fade-up"
-    class="text-3xl font-semibold text-white mb-12 text-center"
-  >
-    Portfolios
-  </h2>
+<section id="portfolio" class="max-w-7xl mx-auto px-6 py-24">
+  <div class="max-w-5xl mx-auto mb-12 flex items-end justify-between">
+    <h2 data-aos="fade-up" class="text-3xl font-semibold text-white">
+      Portfolios
+    </h2>
 
-  <div class="grid grid-cols-1 gap-12 max-w-5xl mx-auto">
-    {portfolios.map((item, index) => (
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-aos="fade-up"
-        class={`group bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-xl
-                hover:bg-white/15 transition
-                flex flex-col items-center gap-6 cursor-pointer
-                ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
-      >
-        <div class="relative rounded-xl overflow-hidden flex-shrink-0 w-80 h-48 md:w-96 md:h-56 bg-[#174871]">
+    <a
+      href="/portfolio"
+      class="inline-block text-base px-8 py-3 rounded-full
+           text-white border border-white/50 font-bold
+           hover:bg-white/25 hover:text-white transition"
+    >
+      Ver más
+    </a>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    {proyectos.map((proyecto, i) => (
+      <div class="relative group">
+
+        <!-- BOTON IR -->
+        <a
+          href={proyecto.url}
+          target="_blank"
+          class="absolute top-4 right-4 z-20 text-sm px-4 py-2 rounded-full
+                 bg-black/70 text-white backdrop-blur hover:bg-black transition
+                 hover:bg-white/20 hover:border hover:border-white/50"
+        >
+          Ir
+        </a>
+
+        <!-- CARD -->
+        <div class="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
           <img
-            src={item.imageUrl}
-            alt={item.title}
-            class="object-cover w-full h-full group-hover:scale-105 transition"
+            src={proyecto.imagen}
+            alt={proyecto.nombre}
+            class="w-full h-[320px] object-cover group-hover:scale-105 transition duration-500"
           />
 
-          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="text-white text-sm tracking-wide uppercase">
-              Click para ir a la website
-            </span>
+          <div class="p-4 bg-transparent border border-white/40 shadow-lg rounded-b-2xl flex items-center justify-between">
+            <h3 class="text-xl text-white font-semibold">{proyecto.nombre}</h3>
+            <button
+              class="btn-descripcion text-sm px-4 py-2 rounded-full
+                     bg-black/70 text-white backdrop-blur hover:bg-black transition cursor-pointer 
+                     hover:bg-white/20 hover:border hover:border-white/50"
+              data-index={i}
+            >
+              Descripción
+            </button>
           </div>
         </div>
 
-        <p class="text-white max-w-xl text-lg leading-relaxed">
-          {item.description}
-        </p>
-      </a>
+      </div>
     ))}
+
   </div>
+
 </section>
+
+
+<!-- MODAL -->
+<div
+  id="modal"
+  class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-6"
+>
+  <div class="bg-white max-w-lg w-full rounded-2xl p-8 relative">
+
+    <button
+      id="modal-close"
+      class="absolute top-4 right-4 text-xl"
+    >
+      ×
+    </button>
+
+    <h2 id="modal-title" class="text-2xl font-semibold mb-4"></h2>
+
+    <p id="modal-desc" class="mb-6 text-black/70"></p>
+
+    <a
+      id="modal-link"
+      target="_blank"
+      class="inline-block px-6 py-3 border border-black rounded-full text-black
+             hover:bg-black hover:text-white transition"
+    >
+      Ir a la página
+    </a>
+
+  </div>
+</div>
+
+
+<!-- DATOS SERIALIZADOS -->
+<script
+  type="application/json"
+  id="proyectos-data"
+  set:html={JSON.stringify(proyectos)}
+></script>
+
+
+<script is:inline>
+  const proyectosDataEl = document.getElementById("proyectos-data");
+  const proyectos = JSON.parse(proyectosDataEl.textContent);
+
+  const modal = document.getElementById("modal");
+  const title = document.getElementById("modal-title");
+  const desc = document.getElementById("modal-desc");
+  const link = document.getElementById("modal-link");
+  const closeBtn = document.getElementById("modal-close");
+
+  function openModal(index) {
+    const proyecto = proyectos[index];
+
+    title.textContent = proyecto.nombre;
+    desc.textContent = proyecto.descripcion;
+    link.href = proyecto.url;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+
+  document.querySelectorAll(".btn-descripcion").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      openModal(Number(index));
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+</script>

@@ -1,0 +1,179 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+const proyectos = [
+  {
+    nombre: "Bar Coral",
+    url: "https://bar-coral.vercel.app/",
+    descripcion: "Diseñamos y desarrollamos una web responsive para un bar ficticio que presenta el menú de comidas y bebidas de forma clara y accesible, facilita la reserva por WhatsApp y guía al usuario a secciones clave como menú, contacto y ubicación. La solución resuelve problemas reales de negocios gastronómicos: muestra la oferta de productos en un formato visual moderno, mejora la accesibilidad en móviles y reduce fricción en la conversión de visitantes a clientes, logrando que la experiencia del usuario sea fluida y efectiva desde cualquier dispositivo.",
+    imagen: "/bar-coral.png",
+  },
+  {
+    nombre: "Hotel Loma Verde",
+    url: "https://hotel-loma-verde.vercel.app/",
+    descripcion: "Diseñamos y desarrollamos una web responsive para un hotel ficticio que presenta el hotel, sus habitaciones y servicios de forma clara y atractiva, e integra un sistema de reservas online con consulta de disponibilidad. El proyecto incluye conexión a base de datos y un dashboard privado para gestionar reservas, fechas y habitaciones, resolviendo una necesidad real del negocio al centralizar la gestión y mejorar la experiencia del usuario tanto para huéspedes como para el equipo del hotel desde cualquier dispositivo.",
+    imagen: "hotel.png",
+  },
+  {
+    nombre: "Trend MDQ",
+    url: "https://trend-mdq.vercel.app/",
+    descripcion:"Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
+    imagen: "portfolio1.png",
+  },
+  {
+    nombre: "Invitación de boda",
+    url: "https://wedding-invite-six-delta.vercel.app/",
+    descripcion:"Diseñamos y desarrollamos una invitación digital para casamiento, enfocada en una experiencia elegante, clara y emocional. La web incluye cuenta regresiva al evento, sección narrativa con la historia de la pareja, información del día (fecha, horario y ubicación), formulario de confirmación de asistencia (RSVP) y una integración hacia una playlist colaborativa. El diseño prioriza la legibilidad, la estética romántica y la navegación simple, optimizada para que los invitados encuentren toda la información del evento en un solo lugar y puedan confirmar su asistencia fácilmente.",
+    imagen: "wedding-invite.png",
+  },
+    {
+    nombre: "Portfolio Artístico",
+    url: "https://storm-of-art.vercel.app/",
+    descripcion:"Diseñamos y desarrollamos una plataforma web para Storm of Art, una galería digital pensada para exhibir obras de arte de forma visualmente impactante. Creamos una interfaz limpia y adaptada a celulares y computadoras, enfocada en que las imágenes carguen rápido y se vean en alta calidad. El proyecto incluyó la puesta en marcha de la web de forma segura, vinculando el dominio propio y asegurando que la navegación sea siempre protegida, logrando un sitio profesional y dinámico donde el arte es el verdadero protagonista.",
+    imagen: "stormofart.png",
+  },
+];
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <title>Portfolio - LUMEN</title>
+</head>
+
+<div>
+        <Navbar />
+    
+</div>
+
+<section class="max-w-7xl mx-auto px-6 py-24">
+
+  <h1 class="text-4xl font-semibold mb-16 text-center">
+    Portfolio
+  </h1>
+
+  <!-- GRID -->
+  <div class="grid md:grid-cols-2 gap-10">
+
+    {proyectos.map((proyecto, i) => (
+      <div class="relative group">
+
+        <!-- BOTON IR -->
+        <a
+          href={proyecto.url}
+          target="_blank"
+          class="absolute top-4 right-4 z-20 text-sm px-4 py-2 rounded-full
+                 bg-black/70 text-white backdrop-blur hover:bg-black transition
+                 hover:bg-white/20 hover:border hover:border-white/50"
+        >
+          Ir
+        </a>
+
+        <!-- CARD -->
+        <div class="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+          <img
+            src={proyecto.imagen}
+            alt={proyecto.nombre}
+            class="w-full h-[320px] object-cover group-hover:scale-105 transition duration-500"
+          />
+
+          <div class="p-4 bg-transparent border border-white/40 shadow-lg rounded-b-2xl flex items-center justify-between">
+            <h3 class="text-xl text-white font-semibold">{proyecto.nombre}</h3>
+            <button
+              class="btn-descripcion text-sm px-4 py-2 rounded-full
+                     bg-black/70 text-white backdrop-blur hover:bg-black transition cursor-pointer
+                      hover:bg-white/20 hover:border hover:border-white/50"
+              data-index={i}
+            >
+              Descripción
+            </button>
+          </div>
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+
+</section>
+
+
+<!-- MODAL -->
+<div
+  id="modal"
+  class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4 sm:p-6"
+>
+  <div class="bg-white w-[calc(100%-2rem)] sm:w-full max-w-lg rounded-2xl p-5 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+
+    <button
+      id="modal-close"
+      class="absolute top-3 right-3 sm:top-4 sm:right-4 text-2xl sm:text-xl leading-none cursor-pointer hover:opacity-70 transition"
+    >
+      ×
+    </button>
+
+    <h2 id="modal-title" class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 pr-8"></h2>
+
+    <p id="modal-desc" class="mb-5 sm:mb-6 text-black/70 text-sm sm:text-base leading-relaxed"></p>
+
+    <a
+      id="modal-link"
+      target="_blank"
+      class="inline-block px-5 sm:px-6 py-2.5 sm:py-3 border border-black rounded-full text-black text-sm sm:text-base
+             hover:bg-black hover:text-white transition"
+    >
+      Ir a la página
+    </a>
+
+  </div>
+</div>
+
+
+<!-- DATOS SERIALIZADOS -->
+<script
+  type="application/json"
+  id="proyectos-data"
+  set:html={JSON.stringify(proyectos)}
+></script>
+
+
+<script is:inline>
+  const proyectosDataEl = document.getElementById("proyectos-data");
+  const proyectos = JSON.parse(proyectosDataEl.textContent);
+
+  const modal = document.getElementById("modal");
+  const title = document.getElementById("modal-title");
+  const desc = document.getElementById("modal-desc");
+  const link = document.getElementById("modal-link");
+  const closeBtn = document.getElementById("modal-close");
+
+  function openModal(index) {
+    const proyecto = proyectos[index];
+
+    title.textContent = proyecto.nombre;
+    desc.textContent = proyecto.descripcion;
+    link.href = proyecto.url;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+
+  document.querySelectorAll(".btn-descripcion").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      openModal(Number(index));
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+</script>
