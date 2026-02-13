@@ -1,5 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import "aos/dist/aos.css";
+
+import barCoralImg from "../assets/portfolio/bar-coral.png";
+import hotelImg from "../assets/portfolio/hotel.png";
+import portfolio1Img from "../assets/portfolio/portfolio1.png";
+import weddingInviteImg from "../assets/portfolio/wedding-invite.png";
 
 const proyectos = [
   {
@@ -7,28 +13,28 @@ const proyectos = [
     url: "https://bar-coral.vercel.app/",
     descripcion:
       "Diseñamos y desarrollamos una web responsive para un bar ficticio que presenta el menú de comidas y bebidas de forma clara y accesible, facilita la reserva por WhatsApp y guía al usuario a secciones clave como menú, contacto y ubicación. La solución resuelve problemas reales de negocios gastronómicos: muestra la oferta de productos en un formato visual moderno, mejora la accesibilidad en móviles y reduce fricción en la conversión de visitantes a clientes, logrando que la experiencia del usuario sea fluida y efectiva desde cualquier dispositivo.",
-    imagen: "/bar-coral.png",
+    imagen: barCoralImg,
   },
   {
     nombre: "Hotel Loma Verde",
     url: "https://hotel-loma-verde.vercel.app/",
     descripcion:
       "Diseñamos y desarrollamos una web responsive para un hotel ficticio que presenta el hotel, sus habitaciones y servicios de forma clara y atractiva, e integra un sistema de reservas online con consulta de disponibilidad. El proyecto incluye conexión a base de datos y un dashboard privado para gestionar reservas, fechas y habitaciones, resolviendo una necesidad real del negocio al centralizar la gestión y mejorar la experiencia del usuario tanto para huéspedes como para el equipo del hotel desde cualquier dispositivo.",
-    imagen: "hotel.png",
+    imagen: hotelImg,
   },
   {
     nombre: "Trend MDQ",
-    url: "https://trend-mdq.vercel.app/",
+    url: "https://trendmdq.vercel.app/",
     descripcion:
       "Carolina tiene una tienda de ropa vintage y necesitaba una website que le permitiera mostrar sus productos de forma clara, atractiva y ordenada, sin depender de redes sociales para cada venta. Desarrollamos una web responsive con un CMS autogestionable, que le permite cargar, editar y eliminar productos fácilmente, mantener el catálogo siempre actualizado y destacar prendas únicas. La solución resuelve problemas clave del negocio: centraliza el catálogo, mejora la experiencia del cliente al navegar desde el celular y optimiza el tiempo de gestión, permitiéndole enfocarse en vender sin depender de terceros para actualizar su tienda online.",
-    imagen: "portfolio1.png",
+    imagen: portfolio1Img,
   },
   {
     nombre: "Invitación de boda",
     url: "https://wedding-invite-six-delta.vercel.app/",
     descripcion:
       "Diseñamos y desarrollamos una invitación digital para casamiento, enfocada en una experiencia elegante, clara y emocional. La web incluye cuenta regresiva al evento, sección narrativa con la historia de la pareja, información del día (fecha, horario y ubicación), formulario de confirmación de asistencia (RSVP) y una integración hacia una playlist colaborativa. El diseño prioriza la legibilidad, la estética romántica y la navegación simple, optimizada para que los invitados encuentren toda la información del evento en un solo lugar y puedan confirmar su asistencia fácilmente.",
-    imagen: "wedding-invite.png",
+    imagen: weddingInviteImg,
   },
 ];
 ---
@@ -67,9 +73,11 @@ const proyectos = [
 
         <!-- CARD -->
         <div class="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
-          <img
+          <Image
             src={proyecto.imagen}
             alt={proyecto.nombre}
+            width={800}
+            height={600}
             class="w-full h-[320px] object-cover group-hover:scale-105 transition duration-500"
           />
 
@@ -129,7 +137,7 @@ const proyectos = [
 <script
   type="application/json"
   id="proyectos-data"
-  set:html={JSON.stringify(proyectos)}
+  set:html={JSON.stringify(proyectos.map(p => ({...p, imagen: typeof p.imagen === 'string' ? p.imagen : p.imagen.src})))}
 ></script>
 
 
